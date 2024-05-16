@@ -23,17 +23,17 @@ export const AuthForm = (props) => {
     //     }).then((res) => console.log(res));
     // }, []);
 
-    // React.useEffect(() => {
-    //     let timer;
-    //     if (authContext.user) {
-    //         // Данные о user из контекста
-    //         timer = setTimeout(() => {
-    //             setMessage({ status: null, text: null });
-    //             props.close();
-    //         }, 1000);
-    //     }
-    //     return () => clearTimeout(timer);
-    // }, [authContext.user]);
+    React.useEffect(() => {
+        let timer;
+        if (authContext.user) {
+            // Данные о user из контекста
+            timer = setTimeout(() => {
+                setMessage({ status: null, text: null });
+                props.close();
+            }, 1000);
+        }
+        return () => clearTimeout(timer);
+    }, [authContext.user]);
 
     const handleInput = (e) => {
         setAuthData({ ...authData, [e.target.name]: e.target.value });
