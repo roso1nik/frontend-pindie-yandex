@@ -46,7 +46,10 @@ export const authorize = async (url, data) => {
                   В headers добавляем информацию о передаваемом 
                   в теле запроса типе данных
               */
-            headers: { "Content-Type": "application/json" },
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Headers": "Content-Type",
+            },
             /* 
                   В тело запроса добавляем приведённый к строке 
                   объект с данными пользователя
@@ -112,7 +115,7 @@ export const vote = async (url, jwt, usersArray) => {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${jwt}`,
             },
-            body: JSON.stringify({ users_permissions_users: usersArray }),
+            body: JSON.stringify({ users: usersArray }),
         });
         if (response.status !== 200) {
             throw new Error("Ошибка голосования");

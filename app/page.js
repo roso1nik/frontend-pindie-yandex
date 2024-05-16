@@ -12,7 +12,7 @@ import { Preloader } from "./components/Preloader/Preloader";
 const Home = () => {
     const popularGames = useGetDataByCategory(endpoints.games, "popular");
     const newGames = useGetDataByCategory(endpoints.games, "new");
-    console.log(popularGames);
+    // console.log(popularGames);
 
     console.log(chalk.bgCyan("внесли баги, Босс, ждем оценки"));
 
